@@ -25,15 +25,15 @@ public class TestUseEeController {
         Document document = new Document();
         document.setTitle("larry");
         document.setContent("larry is cool");
+        document.setUla("ula");
         return documentMapper.insert(document);
     }
 
     @GetMapping("/search")
-    public List<Document> search() {
-        // 查询出所有标题为老汉的文档列表
+    public Long search() {
         LambdaEsQueryWrapper<Document> wrapper = new LambdaEsQueryWrapper<>();
-        wrapper.eq(Document::getTitle, "larry");
-        return documentMapper.selectList(wrapper);
+//        wrapper.eq(Document::getTitle, "老汉");
+        return documentMapper.selectCount(wrapper);
     }
 }
 
