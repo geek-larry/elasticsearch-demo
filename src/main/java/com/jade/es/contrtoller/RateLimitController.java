@@ -24,8 +24,8 @@ public class RateLimitController {
      */
     @GetMapping("/byResource")
     @SentinelResource(value = "byResource", blockHandler = "handleException")
-    public CommonResult byResource() {
-        return new CommonResult("按资源名称限流", 200);
+    public CommonResult<?> byResource() {
+        return new CommonResult<>("按资源名称限流", 200);
     }
 
     /**
@@ -33,13 +33,13 @@ public class RateLimitController {
      * Blocked by Sentinel (flow limiting)
      */
     @GetMapping("/byUrl")
-    @SentinelResource(value = "byUrl", blockHandler = "handleException")
-    public CommonResult byUrl() {
-        return new CommonResult("按url限流", 200);
+    @SentinelResource(value = "byUrl")
+    public CommonResult<?> byUrl() {
+        return new CommonResult<>("按url限流", 200);
     }
 
-    public CommonResult handleException(BlockException exception) {
-        return new CommonResult(exception.getClass().getCanonicalName(), 200);
+    public CommonResult<?> handleException(BlockException exception) {
+        return new CommonResult<>(exception.getClass().getCanonicalName(), 200);
     }
 
 }
