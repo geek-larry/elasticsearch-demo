@@ -15,4 +15,7 @@ public class CommonResult<T> {
     private Integer code;
 
 
+    public CommonResult() {
+
+    }
 }
