@@ -14,7 +14,7 @@ import java.util.List;
  * @description:
  * @date: 2022/10/25
  **/
-@RestController
+@RestController("es")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TestUseEeController {
     private final DocumentMapper documentMapper;

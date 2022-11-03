@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * es 数据模型
  * <p>
- * 
+ *
  **/
 @Data
 @Accessors(chain = true)
@@ -25,7 +25,7 @@ public class Document {
     /**
      * es中的唯一id,如果你想自定义es中的id为你提供的id,比如MySQL中的id,请将注解中的type指定为customize或直接在全局配置文件中指定,如此id便支持任意数据类型)
      */
-    @IndexId(type = IdType.CUSTOMIZE)
+    @IndexId(type = IdType.UUID)
     private String id;
     /**
      * 文档标题,不指定类型默认被创建为keyword类型,可进行精确查询
